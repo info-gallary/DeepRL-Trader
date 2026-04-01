@@ -1,0 +1,8 @@
+streamlit
+pandas
+numpy
+yfinance
+gymnasium
+stable_baselines3
+plotly
+requests
