@@ -8,6 +8,59 @@ A reinforcement learning-based trading system built using PPO (actor–critic) w
 
 This project models stock trading as a **Markov Decision Process (MDP)** and trains a PPO agent to learn optimal **Buy / Sell / Hold** strategies. It includes an interactive Streamlit dashboard for visualization, live logs, and performance analysis.
 
+## 🚀 Why PPO (and not DQN)?
+
+### 🔹 Why PPO is Used
+
+This project uses **Proximal Policy Optimization (PPO)**, a state-of-the-art policy gradient algorithm widely adopted in real-world reinforcement learning systems.
+
+PPO is chosen because:
+
+- It is **stable and reliable** compared to older policy gradient methods  
+- Uses **clipped objective function** to prevent destructive policy updates  
+- Works well with **continuous and noisy environments** like financial markets  
+- Supports **actor–critic architecture**, improving learning efficiency  
+- Requires **less hyperparameter tuning** than many RL algorithms  
+
+In trading, where environments are **non-stationary and stochastic**, PPO provides better convergence and robustness.
+
+---
+
+### 🔹 Why Not DQN?
+
+Although DQN is popular, it is **not ideal for trading systems**:
+
+- DQN is **value-based**, not policy-based  
+- Struggles with **non-stationary environments** (markets constantly change)  
+- Requires **experience replay**, which may break temporal dependencies in financial data  
+- Can be **unstable with noisy rewards**  
+- Limited flexibility for **complex action spaces and portfolio dynamics**  
+
+In contrast, PPO directly learns a **policy**, making it more suitable for sequential decision-making tasks like trading.
+
+---
+
+## 🧠 Why This Approach is Near State-of-the-Art
+
+This system incorporates several elements used in modern RL-based trading research:
+
+- **Actor–Critic PPO framework**
+- **Custom MDP formulation for financial markets**
+- **Reward shaping based on portfolio value**
+- **Transaction cost modeling (realistic constraint)**
+- **Risk-aware metrics (Sharpe Ratio, Max Drawdown)**
+- **Backtesting + Paper Trading pipeline**
+- **Live decision logging and visualization**
+
+These components align with methodologies used in:
+
+- Quantitative finance research  
+- Algorithmic trading systems  
+- Deep RL financial modeling papers  
+
+
+
+
 ---
 
 ## 🧠 Features
@@ -58,12 +111,9 @@ python3 -m venv venv
 source venv/bin/activate  
 
 ---
+### 🔹 Python Dependencies
 
 ### 3. Install dependencies
-
-pip install -r requirements.txt  
-
-If `requirements.txt` is not available:
 
 pip install streamlit pandas numpy yfinance gymnasium stable-baselines3 plotly matplotlib  
 
